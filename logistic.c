@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "decimal.h"
 
-#define PRINT_TIMES 10
+#define PRINT_TIMES 100
 
 
 __uint16_t substitute(__uint16_t mu, __uint16_t x)

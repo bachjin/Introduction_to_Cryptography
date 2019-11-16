@@ -1,7 +1,7 @@
-mu_init = 3.6
-x_init = 0.1
-mu_pace = 0.2
-x_pace = 0.3
+mu_init = float(input("mu first value:"))
+mu_pace = float(input("mu increase pace:"))
+x_init = float(input("x first value:"))
+x_pace = float(input("x increase pace:"))
 
 file_name = "1.in"
 directory= "./data/"
@@ -15,9 +15,9 @@ def add_filename(file_name):
 mu = mu_init
 x = x_init
 
-while mu < 4:
+while mu < 4 and mu > 3.57:
     x = x_init
-    while x < 1:
+    while x < 1 and x > 0:
         full_name = directory + file_name
 
         f = open(full_name, "w")
