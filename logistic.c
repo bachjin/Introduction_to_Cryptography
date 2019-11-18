@@ -1,5 +1,6 @@
+//with fixed decimal
+
 #include <stdio.h>
-#include "decimal.h"
 
 #define PRINT_TIMES 100
 
