@@ -1,4 +1,4 @@
-//with fixed decimal
+//with fixed decimal of 16 bits
 
 #include <stdio.h>
 

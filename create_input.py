@@ -18,14 +18,14 @@ x = x_init
 while mu < 4 and mu > 3.57:
     x = x_init
     while x < 1 and x > 0:
-        full_name = directory + file_name
+        full_name = directory + '%5f'%mu + '-' + file_name
 
         f = open(full_name, "w")
-
         print(mu, x, file=f)
+        f.close()
 
         x += x_pace
         file_name = add_filename(file_name)
-        f.close()
     mu += mu_pace
+    file_name = "1.in"
     
