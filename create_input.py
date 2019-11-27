@@ -17,7 +17,7 @@ x = x_init
 
 while mu < 4 and mu > 3.57:
     x = x_init
-    while x < 1 and x > 0:
+    while 1 - x > 1e-10 and x > 0:
         full_name = directory + '%5f'%mu + '-' + file_name
 
         f = open(full_name, "w")
