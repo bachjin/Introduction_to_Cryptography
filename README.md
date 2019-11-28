@@ -12,6 +12,7 @@ The project is composed of these parts:
   - [logistic32.c](#logistic32c)
   - [draw_picture.py](#draw_picturepy)
   - [draw_bit_picture.py](#draw_bit_picturepy)
+  - [analyze_out.sh](#analyze_outsh)
   - [how to use](#how-to-use)
 
 <!-- /code_chunk_output -->
@@ -31,13 +32,15 @@ The accuracy become 32 bits. And the output is now bytes instead of ascii number
 Draw pictures of the `.out` files in ./data directory. 
 ## draw_bit_picture.py
 The `.out` file contains only random bytes. 
-
+## analyze_out.sh
+Use every `.out` file as input bytes to dieharder analization. Each result is in the `.a` file. 
 
 ## how to use
 > rm data/*
 > python3 create_input.py
 > bash make_output.sh
 > python3 draw_bit_picture.py
+> bash analyze_out.sh
 
 > cat *.out | dieharder -o -f example.input -t 10
 > dieharder -g 202 -f example.input -a
