@@ -36,13 +36,13 @@ The `.out` file contains only random bytes.
 Use every `.out` file as input bytes to dieharder analization. Each result is in the `.a` file. 
 
 ## how to use
-> rm data/*
-> python3 create_input.py
-> bash make_output.sh
-> python3 draw_bit_picture.py
-> bash analyze_out.sh
+    rm data/*
+    python3 create_input.py
+    bash make_output.sh
+    python3 draw_bit_picture.py
+    bash analyze_out.sh
 
-> cat *.out | dieharder -o -f example.input -t 10
-> dieharder -g 202 -f example.input -a
+    cat *.out | dieharder -o -f example.input -t 10
+    dieharder -g 202 -f example.input -a
 
-> dieharder -g 201 -f example.bin -a
+    dieharder -g 201 -f example.bin -a
