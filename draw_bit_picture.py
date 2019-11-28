@@ -3,6 +3,8 @@ import matplotlib.pyplot as plt
 
 outlist = open('./data/outlist.txt', 'r')
 for file_name in outlist.read().split('\n'):
+    if file_name == '':
+        break
     file_name = './data/' + file_name
     f = open(file_name, 'rb')
 

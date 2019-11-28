@@ -1,5 +1,26 @@
 //with fixed decimal of 16 bits
 
+
+/*
+### sample input
+
+3.75 0.5
+
+### sample output
+
+239
+56
+164
+220
+115
+237
+64
+180
+199
+164
+
+*/
+
 #include <stdio.h>
 
 #define PRINT_TIMES 100

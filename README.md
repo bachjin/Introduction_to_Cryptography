@@ -18,8 +18,9 @@ The project is composed of these parts:
 
 ## create_input.py
 Create input data such as `3.6000-1.in` in the ./data directory. 
+Save a file `mu_list.txt` with format "%f\n" for further analysis. 
 ## make_output.sh
-Use every `*.in` file as input for `logistic.c`, create the corresponding output `*.out`. 
+Use every `*.in` file as input for `logistic32.c`, create the corresponding output `*.out`. 
 And save a file `outlist.txt` in that directory for drawing program to read. 
 
 ## logistic.c
@@ -33,25 +34,12 @@ The `.out` file contains only random bytes.
 
 
 ## how to use
+> rm data/*
 > python3 create_input.py
 > bash make_output.sh
-> python3 draw_picture.py
+> python3 draw_bit_picture.py
 
 > cat *.out | dieharder -o -f example.input -t 10
 > dieharder -g 202 -f example.input -a
-### sample input {ignore = true}
-----
-3.75 0.5
-### sample output {ignore = true}
-----
-239
-56
-164
-220
-115
-237
-64
-180
-199
-164
 
+> dieharder -g 201 -f example.bin -a

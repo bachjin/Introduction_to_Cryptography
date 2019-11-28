@@ -3,7 +3,8 @@
 
 #include <stdio.h>
 
-#define PRINT_TIMES 1000
+#define PRINT_TIMES 100
+#define PRECISE 32
 
 
 __uint32_t substitute(__uint32_t mu, __uint32_t x)
@@ -43,7 +44,7 @@ int main()
     {
         x = substitute(mu, x);
         
-        fwrite(&x, sizeof(__uint32_t), 1, stdout);
+        fwrite(&x, PRECISE / 8, 1, stdout);
     }
 
     return 0;

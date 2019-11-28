@@ -1,3 +1,7 @@
 /data/
 *.json
 
+decimal.h
+create_input_file
+logistic
+logistic32

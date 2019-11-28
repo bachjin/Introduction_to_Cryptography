@@ -1,7 +1,11 @@
 #!/bin/bash
 
 cd ./data/
-rm outlist.txt
+for filename in $(ls outlist.txt 2> /dev/null)
+do
+rm ${filename}
+done
+
 for filename in $(ls *.in)
 do
 	../logistic32 < ${filename} > ${filename%.*}".out"
