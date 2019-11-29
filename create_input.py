@@ -23,11 +23,16 @@ for precise in range(8, 40, 8):
         mu_list.write("%f\n" % mu)
         x = x_init
         while 1 - x > 1e-10 and x > 0:
-            full_name = directory + '%2d-'%precise + \
-                '%5f'%mu + '-' + file_name
+            if precise >= 10:
+                full_name = directory + '%2d-'%precise + \
+                    '%5f'%mu + '-' + file_name
+            else:
+                p = '0' + '%1d'%precise + '-'
+                full_name = directory + p + \
+                    '%5f'%mu + '-' + file_name
 
             f = open(full_name, "w")
-            print(mu, x, file=f)
+            print(precise, mu, x, file=f)
             f.close()
 
             x += x_pace

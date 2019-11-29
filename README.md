@@ -42,7 +42,7 @@ Use lines just contain an integer as input. Output is a float of the average dis
 Use every `.b` file as input to compute its average period. 
 
 ## how to use
-    rm data/*
+    bash clear.sh
     python3 create_input.py
     bash make_output.sh
     python3 draw_bit_picture.py

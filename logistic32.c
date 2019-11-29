@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-#define PRINT_TIMES 100
+#define PRINT_TIMES 100000
 
 
 
