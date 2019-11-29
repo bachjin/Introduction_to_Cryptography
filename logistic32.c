@@ -4,7 +4,7 @@
 #include <stdio.h>
 
 #define PRINT_TIMES 100
-#define PRECISE 32
+
 
 
 __uint32_t substitute(__uint32_t mu, __uint32_t x)
@@ -30,6 +30,9 @@ __uint8_t x_output(__uint32_t x)
 
 int main()
 {
+    int PRECISE;
+    scanf("%d", &PRECISE);
+
     __uint32_t mu = 0xc0000000;
     __uint32_t x = 0x80000000;
 

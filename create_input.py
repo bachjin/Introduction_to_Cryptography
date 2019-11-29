@@ -17,19 +17,22 @@ x = x_init
 
 mu_list = open('./data/mu_list.txt', 'w')
 
-while mu < 4 and mu > 3.57:
-    mu_list.write("%f\n" % mu)
-    x = x_init
-    while 1 - x > 1e-10 and x > 0:
-        full_name = directory + '%5f'%mu + '-' + file_name
+for precise in range(8, 40, 8):
+    mu = mu_init
+    while mu < 4 and mu > 3.57:
+        mu_list.write("%f\n" % mu)
+        x = x_init
+        while 1 - x > 1e-10 and x > 0:
+            full_name = directory + '%2d-'%precise + \
+                '%5f'%mu + '-' + file_name
 
-        f = open(full_name, "w")
-        print(mu, x, file=f)
-        f.close()
+            f = open(full_name, "w")
+            print(mu, x, file=f)
+            f.close()
 
-        x += x_pace
-        file_name = add_filename(file_name)
-    mu += mu_pace
-    file_name = "1.in"
+            x += x_pace
+            file_name = add_filename(file_name)
+        mu += mu_pace
+        file_name = "1.in"
     
 mu_list.close()

@@ -13,6 +13,8 @@ The project is composed of these parts:
   - [draw_picture.py](#draw_picturepy)
   - [draw_bit_picture.py](#draw_bit_picturepy)
   - [analyze_out.sh](#analyze_outsh)
+  - [average_period.py](#average_periodpy)
+  - [compute_period.sh](#compute_periodsh)
   - [how to use](#how-to-use)
 
 <!-- /code_chunk_output -->
@@ -34,6 +36,10 @@ Draw pictures of the `.out` files in ./data directory.
 The `.out` file contains only random bytes. 
 ## analyze_out.sh
 Use every `.out` file as input bytes to dieharder analization. Each result is in the `.a` file. 
+## average_period.py
+Use lines just contain an integer as input. Output is a float of the average distance of elements. 
+## compute_period.sh
+Use every `.b` file as input to compute its average period. 
 
 ## how to use
     rm data/*
@@ -41,7 +47,9 @@ Use every `.out` file as input bytes to dieharder analization. Each result is in
     bash make_output.sh
     python3 draw_bit_picture.py
     bash analyze_out.sh
+    bash compute_period.sh
 
+    * these below are just samples *
     cat *.out | dieharder -o -f example.input -t 10
     dieharder -g 202 -f example.input -a
 
