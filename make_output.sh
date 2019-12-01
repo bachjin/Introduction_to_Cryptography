@@ -8,7 +8,7 @@ done
 
 for filename in $(ls *.in)
 do
-	../logistic32 < ${filename} > ${filename%.*}".out"
+	../logistic32_feedback < ${filename} > ${filename%.*}".out"
 	echo ${filename%.*}".out" >> outlist.txt
 done
 

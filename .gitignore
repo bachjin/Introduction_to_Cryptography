@@ -5,3 +5,4 @@ decimal.h
 create_input_file
 logistic
 logistic32
+logistic32_feedback

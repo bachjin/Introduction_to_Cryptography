@@ -36,7 +36,7 @@ __uint32_t substitute_feedback(__uint32_t mu, __uint32_t x)
 {
     //store 32 results in the register,
     //and use the CRC-32 polynomial for feedback
-    for(int i = REG_SIZE; i > 0; i++)
+    for(int i = REG_SIZE; i > 0; i--)
         reg[i] = reg[i - 1];
     
     reg[0] = substitute(mu, x);
