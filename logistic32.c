@@ -3,13 +3,17 @@
 
 #include <stdio.h>
 
-#define PRINT_TIMES 100000
+#define PRINT_TIMES 1000000
 
 
+int PRECISE;
 
 __uint32_t substitute(__uint32_t mu, __uint32_t x)
 {
     //represents 3.57 <= mu + 3 < 4, 0 < x < 1
+    x = x >> (32 - PRECISE);
+    x = x << (32 - PRECISE);
+
     __uint64_t temp = x;
     temp *= (x ^ 0xffffffff);
     //  x ^ 0xffffffff is 1 - x
@@ -30,7 +34,6 @@ __uint8_t x_output(__uint32_t x)
 
 int main()
 {
-    int PRECISE;
     scanf("%d", &PRECISE);
 
     __uint32_t mu = 0xc0000000;
