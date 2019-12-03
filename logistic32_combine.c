@@ -4,7 +4,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define PRINT_TIMES 1000000
+#define PRINT_TIMES 100000
 #define INITIAL_TIMES 150
 #define REG_SIZE 8
 
@@ -56,6 +56,15 @@ __uint32_t substitute_combine(__uint32_t mu, __uint32_t x)
     return (r1 * r2) ^ (r2 * r3) ^ r3;
 }
 
+int last_put[256];
+
+void find_period(__uint8_t out, int i)
+{
+    //output the period to the stderr, 
+    //and refresh the last_put array
+    fprintf(stderr, "%d\n", i - last_put[out]);
+    last_put[out] = i;
+}
 
 __uint8_t x_output(__uint32_t x)
 {
@@ -64,6 +73,8 @@ __uint8_t x_output(__uint32_t x)
 
 int main()
 {
+    memset(last_put, 0, sizeof(int) * 256);
+
     memset(reg1, 0, (REG_SIZE + 1) * sizeof(__uint32_t));
     memset(reg2, 0, (REG_SIZE + 1) * sizeof(__uint32_t));
     memset(reg3, 0, (REG_SIZE + 1) * sizeof(__uint32_t));
@@ -80,14 +91,15 @@ int main()
     //  mu don't store 3, in other words,
     //  mu only include the fractional part of real mu
     
-    for(int i = 1; i <= INITIAL_TIMES; i++)
-        x = substitute(mu, x);
-
     for(int i = 1; i <= PRINT_TIMES; i++)
     {
         x = substitute_combine(mu, x);
         
-        fwrite(&x, PRECISE / 8, 1, stdout);
+        __uint8_t out = x_output(x);
+
+        find_period(out, i);
+
+        fwrite(&out, sizeof(__uint8_t), 1, stdout);
     }
 
     return 0;

@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 
-#define PRINT_TIMES 1000000
+#define PRINT_TIMES 100000
 
 
 int PRECISE;
@@ -32,8 +32,20 @@ __uint8_t x_output(__uint32_t x)
     return x >> 24;
 }
 
+int last_put[256];
+
+void find_period(__uint8_t out, int i)
+{
+    //output the period to the stderr, 
+    //and refresh the last_put array
+    fprintf(stderr, "%d\n", i - last_put[out]);
+    last_put[out] = i;
+}
+
 int main()
 {
+    memset(last_put, 0, sizeof(int) * 256);
+
     scanf("%d", &PRECISE);
 
     __uint32_t mu = 0xc0000000;
@@ -50,7 +62,11 @@ int main()
     {
         x = substitute(mu, x);
         
-        fwrite(&x, PRECISE / 8, 1, stdout);
+        __uint8_t out = x_output(x);
+
+        find_period(out, i);
+
+        fwrite(&out, sizeof(__uint8_t), 1, stdout);
     }
 
     return 0;

@@ -6,3 +6,5 @@ create_input_file
 logistic
 logistic32
 logistic32_feedback
+logistic32_interfere
+logistic32_combine
