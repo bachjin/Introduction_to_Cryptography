@@ -25,7 +25,7 @@ class test(object):
     def print(self):
 
         print("FAILED ", self.fa)
-        print("WEAK ", self.we)
+        print("WEAK   ", self.we)
         print("PASSED ", self.pa)
         try:
             aver_p = self.psum / self.pn
