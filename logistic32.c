@@ -2,6 +2,7 @@
 //outputs will be unreadable bytes
 
 #include <stdio.h>
+#include <string.h>
 
 #define PRINT_TIMES 100000
 

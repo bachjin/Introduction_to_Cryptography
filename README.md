@@ -15,6 +15,8 @@ The project is composed of these parts:
   - [analyze_out.sh](#analyze_outsh)
   - [average_period.py](#average_periodpy)
   - [compute_period.sh](#compute_periodsh)
+  - [compute_pass.sh](#compute_passsh)
+  - [average_pass.py](#average_passpy)
   - [how to use](#how-to-use)
 
 <!-- /code_chunk_output -->
@@ -44,8 +46,13 @@ Use every `.out` file as input bytes to dieharder analization. Each report is in
 ## average_period.py
 Use lines just contain an integer as input. Output is a float of the average distance of elements. 
 ## compute_period.sh
-Use every `.time` file as input to `average.py ` to compute its average period. 
+Use every `.times` file as input to `average_period.py ` to compute its average period. 
 Store the float into `.p`. 
+## compute_pass.sh
+Use every `.a` file as input to `average_pass.py` to count its pass times. The output is in `report.txt`.
+## average_pass.py
+Count their **PASSED**, **FAILED**, **WEAK**.
+
 
 ## how to use
     bash clear.sh
@@ -54,6 +61,7 @@ Store the float into `.p`.
     python3 draw_bit_picture.py
     bash analyze_out.sh
     bash compute_period.sh
+    bash compute_pass.sh
 
     * these below are just samples *
     cat *.out | dieharder -o -f example.input -t 10

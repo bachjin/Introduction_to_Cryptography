@@ -27,7 +27,7 @@ __uint32_t substitute_interfere(__uint32_t mu, __uint32_t x)
     temp = temp >> 32;
     //  the last 32 bit is the fractional part of x*(1-x)
 
-    temp += (rand() % 0x00000100) << (32 - PRECISE); 
+    temp ^= (rand() % 0x00000100) << (32 - PRECISE); 
     //  the random interfere is between [0, 256)
     //  interfere the significant bits
 

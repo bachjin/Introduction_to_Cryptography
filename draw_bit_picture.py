@@ -9,8 +9,15 @@ for file_name in outlist.read().split('\n'):
     f = open(file_name, 'rb')
 
     y = []
+    i = 0
     for line in f.read():
-        y.append(int(line))
+        i += 1
+        if i < 150:
+            continue
+        elif i > 300:
+            break
+        else:
+            y.append(int(line))
 
     x = range(1, 1 + len(y))
 
