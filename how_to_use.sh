@@ -11,4 +11,6 @@ echo 'test'
 bash compute_period.sh
 echo 'compute'
 bash compute_pass.sh
-echo 'pass finished'
+echo 'pass'
+bash integrate_period.sh
+echo 'integrate'
